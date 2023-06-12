@@ -14,5 +14,5 @@ const (
 	TASK4 = "EditProduct"
 	TASK5 = "DeleteProduct"
 
-	SERVERPORT = ":8000"
+	SERVERPORT = "8000"
 )
