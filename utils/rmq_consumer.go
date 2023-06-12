@@ -16,7 +16,7 @@ type RMQConsumer struct {
 	ConnectionString string
 }
 
-func (rmq RMQConsumer) ConsumeMessage(ctx *gin.Context) {
+func (rmq RMQConsumer) ConsumeMessage() {
 	rmq.Queue = constants.QUEUE
 	rmq.ConnectionString = fmt.Sprintf("amqp://%s:%s@%s:%s/", constants.USERNAME, constants.PASSWORD, constants.HOST, constants.PORT)
 
@@ -50,6 +50,7 @@ func (rmq RMQConsumer) ConsumeMessage(ctx *gin.Context) {
 	go func() {
 		for d := range msgs {
 			if d.Type == constants.TASK1 {
+				var ctx *gin.Context
 				var productModel models.ProductModel
 				fmt.Printf("IN PROGRESS - " + constants.TASK1)
 				products, err := productModel.GetAll()
