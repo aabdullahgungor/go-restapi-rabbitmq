@@ -14,10 +14,10 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		products := main.Group("products")
 		{
 			products.GET("/", productController.GetAllProducts)
-			products.GET("/:id", productController.GetProductById)
-			products.POST("/", productController.CreateProduct)
-			products.PUT("/", productController.EditProduct)
-			products.DELETE("/:id", productController.DeleteProduct)
+			//products.GET("/:id", productController.GetProductById)
+			//products.POST("/", productController.CreateProduct)
+			//products.PUT("/", productController.EditProduct)
+			//products.DELETE("/:id", productController.DeleteProduct)
 		}
 	}
 	return router
